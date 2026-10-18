@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-void: #050505;
+    --text-primary: rgba(255, 255, 255, 0.92);
+    --text-secondary: rgba(255, 255, 255, 0.60);
+    --espresso-brown: #6F3E28;
+    --coffee-caramel: #B87945;
+    --cream: #E9D6B8;
+    --milk-white: #F4EEE5;
+  }
+
+  html {
+    background-color: #050505;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: #050505;
+    color: rgba(255, 255, 255, 0.92);
+    overflow-x: clip;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    selection-background-color: #6F3E28;
+    selection-color: #FAF7F2;
+  }
+
+  ::selection {
+    background: #6F3E28;
+    color: #FAF7F2;
+  }
+
+  /* Custom Narrow Dark Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1f1a17;
+    border-radius: 3px;
+    border: 1px solid rgba(111, 62, 40, 0.2);
+    transition: background-color 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6F3E28;
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #1f1a17 #050505;
+  }
+}
+
+/* Reduced Motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Subtle luxury glow effect utility */
+.glow-caramel {
+  text-shadow: 0 0 24px rgba(184, 121, 69, 0.35);
+}
+
+.glow-espresso {
+  box-shadow: 0 0 35px -5px rgba(111, 62, 40, 0.45);
+}
+
+/* Subtle background vignette to guarantee 0 visible border cutoffs */
+.canvas-vignette {
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(5, 5, 5, 0) 55%,
+    rgba(5, 5, 5, 0.65) 85%,
+    #050505 100%
+  );
+}
